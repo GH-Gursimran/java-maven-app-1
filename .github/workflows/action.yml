@@ -127,6 +127,7 @@ jobs:
           cat $PWD/Response.json
           
   Docker_Build:
+        needs: build
         uses: GH-Gursimran/java-maven-app-1/.github/workflows/docker.yml@main
         with:
           image_name: java-maven-app
