@@ -136,4 +136,4 @@ jobs:
           dock_password: ${{secrets.DOCKER_PASSWORD}}
       
   Executing-Separate-Repos-Workflow:
-        uses: GH-Gursimran/psychic-enigma/blob/main/.github/workflows/action.yml@main
+        uses: GH-Gursimran/psychic-enigma/.github/workflows/action.yml@main
