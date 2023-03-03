@@ -136,4 +136,15 @@ jobs:
           dock_password: ${{secrets.DOCKER_PASSWORD}}
       
   Executing-Separate-Repos-Workflow:
-        uses: GH-Gursimran/psychic-enigma/.github/workflows/action.yml@main
+  
+        runs-on: ubuntu-latest
+        
+        steps: 
+          - name : Post Request to run workflow in another repo
+            run : |
+              curl -X POST https://api.github.com/repos/GH-Gursimran/psychic-enigma/dispatches \
+              -H 'Accept: application/vnd.github.everest-preview+json' \
+              -u ${{ secrets.PAT_TOKEN }} \
+              --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+          - uses: actions/checkout@v3
+            
